@@ -25,18 +25,18 @@
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">MAIN</a></li>
-				<li><a href="bbs.jsp">BOARD</a></li>
+				<li><a href="main.jsp">main</a></li>
+				<li><a href="bbs.jsp">board</a></li>
 			</ul> 
 			
 			<ul class="nav navbar-nav navbar-right">
 				<li class ="dropdown">
 					<a href="#" class="dropdown-toggle" 
 					data-toggle="dropdown" role= "button" aria-haspopup="true"
-					aria-expanded="false">CONNECT<span class="caret"></span></a>
+					aria-expanded="false">connect<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li class="active"><a href="login.jsp">LOGIN</a></li>
-						<li><a href="join.jsp">SIGN IN</a></li>
+						<li class="active"><a href="login.jsp">login</a></li>
+						<li><a href="join.jsp">sign in</a></li>
 					</ul>
 				</li>
 		</ul>
@@ -47,22 +47,40 @@
 	<div class ="col-lg-4"></div>
 	<div class ="col-lg-4">
 		<div class="jumbotron" style="padding-top: 20px;">
-			<form method="post" action ="LoginAction.jsp">
-				<h3 style="text-align: center;">LOGIN PAGE</h3>
+			<form method="post" action ="joinAction.jsp">
+				<h3 style="text-align: center;">JOIN</h3>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder ="id" name="userID" maxlength="20">
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control" placeholder ="password" name="userPassword" maxlength="20">
 				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder ="name" name="userName " maxlength="20">
+				</div>
+				<div class="form-group" style = "text-align : center;" >
+					<div class ="btn-group" data-toggle ="buttons">
+						<label class = "btn btn-primary active">
+						<input type="radio" class="userGender" autocomplete ="off" value = "male" checked> Male
+						</label>
+						<label class = "btn btn-primary">
+						<input type="radio" class="userGender" autocomplete ="off" value = "female" checked> Female
+						</label>	
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="email" class="form-control" placeholder ="enail" name="userEmail " maxlength="20">
+				</div>
 				
-				<input type="submit" class="btn btn-primary form-control" value="login">
+				<input type="submit" class="btn btn-primary form-control" value="join">
 				
 			</form>
 		</div>
 	</div>
 	<div class ="col-lg-4"></div>
 </div>
+
+
 
 <script src = "https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src = "js/bootstrap.js"></script>
