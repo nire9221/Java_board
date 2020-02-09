@@ -35,8 +35,8 @@
 					data-toggle="dropdown" role= "button" aria-haspopup="true"
 					aria-expanded="false">connect<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li class="active"><a href="login.jsp">login</a></li>
-						<li><a href="join.jsp">sign in</a></li>
+						<li><a href="login.jsp">login</a></li>
+						<li class="active"><a href="join.jsp">sign in</a></li>
 					</ul>
 				</li>
 		</ul>

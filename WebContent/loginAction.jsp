@@ -16,10 +16,25 @@
 </head>
 <body>
 	<% 
+	
+	String userID = null;
+	if (session.getAttribute("userID") != null){
+		userID = (String) session.getAttribute("userID"); // make userID to get sessio n
+	}
+	if (userID != null){ // to prevent user that already login cannot login again
+		PrintWriter script = response.getWriter(); 
+		script.println("<script>");
+		script.println("alert('already logged in')"); 
+		script.println("location.href = 'main.jsp'");
+		script.println("</script>");
+	}
+	
+	
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.login(user.getUserID(),user.getUserPassword()); /* get the input data from login.jsp page and execute */
 		
 		if (result == 1) {
+			session.setAttribute ("userID", user.getUserID());// when login is successful, user take a session to keep login status  
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("location.href = 'main.jsp'"); /* move to main.jsp if login is successful */
