@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content -Type" content = "text/html; charset="UTF-8">
+<meta http-equiv="Content -Type" content = "text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/custom.css">
 <title>JSP Board</title>
 </head>
 <body>

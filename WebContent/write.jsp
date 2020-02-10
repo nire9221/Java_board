@@ -1,8 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import = "java.io.PrintWriter" %>
-<%@ page import = "bbs.BbsDAO " %>
-<%@ page import = "bbs.Bbs" %>
-<%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,23 +8,13 @@
 <meta name = "viewport" content ="width=device-width", initial-scale="1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
- <title>JSP Board</title>
-<style type="text/css">
-	a, a:hover{
-		color: #000000; 
-		text-decoration: none;  
-	}
-</style> 
-</head>
+<title>JSP Board</title>
+</head> 
 <body>
 	<%
 		String userID = null;
 		if (session.getAttribute("userID") != null) {
 		userID = (String) session.getAttribute("userID");
-		
-		int pagenumber =1; //default page
-		if (reqeuest.parameter("pageNumber") != null){
-			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));	
 		}
 	%>
 
@@ -85,51 +73,27 @@
 </nav>
  <div class ="container">
  	<div class ="row">
+ 	<form method ="post" action="writeAction.jsp">
  		<table class ="table table-striped" style ="text-align: center; border: 1px solid #dddddd">
  			<thead>
  				<tr>
- 					<th style ="background-color:#eeeeee; text-align: center;">No.</th>
- 					<th style ="background-color:#eeeeee; text-align: center;">Title</th>
- 					<th style ="background-color:#eeeeee; text-align: center;">User</th>
- 					<th style ="background-color:#eeeeee; text-align: center;">Date</th>
+ 					<th colspan ="2" style ="background-color:#eeeeee; text-align: center;">bbs form</th>
  				</tr>
  			</thead>
  			
  			<tbody>
- 				<%
-					BbsDAO bbsDAO = new BbsDAO();
- 					ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
- 					for (int i=0; i<list.size(); i++){
- 				%>
  				<tr>
- 					<td><%= list.get(i).getBbsID() %></td>
- 					<td><a href ="view.jsp?bbsID=<%=list.get(i).getBbsID() %>"> <%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n","<br>")%></td>
- 					<td><%=list.get(i).getUserID() %></td>
- 					<td><%=list.get(i).getBbsDate().substring(0,11) + list.get(i).getBbsDate().substring(11,13) + "hour" + 
- 					list.get(i).getBbsDate().substring(14,16) +"minute" %></td>
+ 					<td><input type ="text" class ="form-control" placeholder ="title" name = "bbsTitle" maxlength ="50"> </td>
  				</tr>
- 				<%
-					}
- 				%>
+ 				<tr>
+ 					<td><textarea class ="form-control" placeholder ="content" name = "bbsContent" maxlength ="2048" 
+ 					style = "height:350px;"></textarea></td>
+ 				</tr>
  			</tbody>
   		</table>
-  		<% 
-  			if (pageNumber != 1){
-  		%>
-  		
-  		<a href = "bbs.jsp?pageNumber=<%= pageNumber -1%>" class = "btn btn-success btn-arrow-left">prev</a> 
-  		
-  		<%
-  			} if (bbsDAO.nextPage(pageNumber +1)){ 
-  		%>
-  		
-  		<a href = "bbs.jsp?pageNumber=<%= pageNumber +1%>" class = "btn btn-success btn-arrow-left">next</a>
-	  		
-		<%
-			}
- 		%>
-  		
- 		<a href ="write.jsp" class = "btn btn-primary pull-right"> Write</a>
+  		<input type ="submit" class = "btn btn-primary pull-right" value = "write">
+  		</form>
+
  	</div>
  
  </div>

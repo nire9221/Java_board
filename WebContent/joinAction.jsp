@@ -11,7 +11,6 @@
 <jsp:setProperty name ="user" property="userEmail " />  <!-- get userEmail from join.jsp  page  -->
 
 
-
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,0 +1,11 @@
+@import url(http://fonts.googleapis.com/earlyaccess/avenir.css); 
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css); 
+
+*{
+	font-family: 'avenir';
+
+}
+
+h1{
+	 font-family : 'nanumgothic';
+}
