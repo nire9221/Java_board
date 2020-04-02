@@ -16,9 +16,9 @@ public class BbsDAO {
 	
 	public BbsDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:nire9221"; // connect sql in localhost
-			String dbID = "nire9221"; // root id
-			String dbPassword = "rkdwlsdud3"; // rood password
+			String dbURL = "jdbc:mysql://localhost:root"; // connect sql in localhost
+			String dbID = "root"; // root id
+			String dbPassword = "9221"; // rood password
 			Class.forName("com.mysql.jdbc.Driver"); //find mysql driver
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 			

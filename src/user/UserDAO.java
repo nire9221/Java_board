@@ -15,8 +15,8 @@ public class UserDAO {
 	public UserDAO() {
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/BBS"; // connect sql in localhost
-			String dbID = "postgres"; // root id
-			String dbPassword = "rkdwlsdud3"; // rood password
+			String dbID = "root"; // root id
+			String dbPassword = "9221"; // root password
 			Class.forName("com.mysql.jdbc.Driver"); //find mysql driver
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 			

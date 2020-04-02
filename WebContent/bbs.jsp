@@ -3,6 +3,8 @@
 <%@ page import = "bbs.BbsDAO " %>
 <%@ page import = "bbs.Bbs" %>
 <%@ page import = "java.util.ArrayList" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,12 +25,13 @@
 		String userID = null;
 		if (session.getAttribute("userID") != null) {
 		userID = (String) session.getAttribute("userID");
-		
-		int pagenumber =1; //default page
-		if (reqeuest.parameter("pageNumber") != null){
-			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));	
+		}
+		int pageNumber =1; //default page
+		if (request.getParameter("pageNumber") != null){
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		}
 	%>
+
 
 	<nav class ="navbar navbar-default">
 		<div class="navbar-header">
@@ -101,9 +104,12 @@
  					ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
  					for (int i=0; i<list.size(); i++){
  				%>
+ 				
  				<tr>
  					<td><%= list.get(i).getBbsID() %></td>
- 					<td><a href ="view.jsp?bbsID=<%=list.get(i).getBbsID() %>"> <%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n","<br>")%></td>
+ 					<td><a href ="view.jsp?bbsID=<%=list.get(i).getBbsID() %>"> 
+ 					<%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+ 					.replaceAll("\n","<br>")%></a></td>
  					<td><%=list.get(i).getUserID() %></td>
  					<td><%=list.get(i).getBbsDate().substring(0,11) + list.get(i).getBbsDate().substring(11,13) + "hour" + 
  					list.get(i).getBbsDate().substring(14,16) +"minute" %></td>
@@ -123,8 +129,8 @@
   			} if (bbsDAO.nextPage(pageNumber +1)){ 
   		%>
   		
-  		<a href = "bbs.jsp?pageNumber=<%= pageNumber +1%>" class = "btn btn-success btn-arrow-left">next</a>
-	  		
+  		<a href = "bbs.jsp?pageNumber=<%= pageNumber +1%>" class = "btn btn-success btn-arrow-left">next</a>	
+		
 		<%
 			}
  		%>

@@ -35,7 +35,7 @@
 	
 	 
 		if (user.getUserID() == null || user.getUserPassword() == null || user.getUserName() == null || user.getUserGender() == null 
-		|| user.getUserEmail( ) == null){  // check if all required information is not blank  
+		|| user.getUserEmail() == null){  // check if all required information is not blank  
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('fill the blanck')"); 

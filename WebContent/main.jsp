@@ -1,4 +1,4 @@
-  <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "java.io.PrintWriter" %>
 <!DOCTYPE html>
@@ -93,13 +93,13 @@
  		</ol>
  		<div class ="carousel-inner">
  			<div class="item active">
- 				<img src ="images/1.jpg">
+ 				<img src ="images/1.JPG">
  			</div>
  			<div class="item">
- 				<img src ="images/2.jpg">
+ 				<img src ="images/2.JPG">
  			</div>
  			<div class="item">
- 				<img src ="images/3 .jpg">
+ 				<img src ="images/3.JPG">
  			</div>
  		</div>
  		<a class ="left carousel-control" href ="#myCarousel" data-slide ="prev"> 
